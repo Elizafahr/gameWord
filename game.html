@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="start">
+        <div id="name">
+            <h1 class="title" style="color:white;">Выберите тему</h1>
+        </div>
+        <div class="themsSelect">
+            <div class="theme-button btn" myAtr="words">Любое</div> <!--onclick="generateWord()"-->
+            <div class="theme-button btn" myAtr="cities">Города</div>
+            <div class="theme-button btn" myAtr="animals">Животные</div>
+            <div class="theme-button btn" myAtr="flowers">Растения</div>
+            <!-- <input class="theme-button btn" onclick="show()" type="button" value="Любое">onclick="generateWord()"-->
+            <!-- <input class="theme-button btn" onclick="show()" type="button" value="Города">onclick="generateWord()"-->
+            <!-- <input class="theme-button btn" onclick="show()" type="button" value="Животные">-onclick="generateWord()"-->
+            <!-- <input class="theme-button btn" onclick="show()" type="button" value="Растения">onclick="generateWord()"-->
+
+        </div>
+    </div>
+    <!-- <div class="pyro">
+  <div class="before"></div>
+  <div class="after"></div>
+</div> -->
+    <div class="container">
+        <h1 class="title">Виселица</h1>
+        <div id="firstrow">
+            <div class="image-container" id="confetti-container">
+                <img src="img/0.png" alt="Изображение виселицы">
+            </div>
+            <div id="information">
+                <div id="results">
+                    <p>
+                        Тема слова: <span id="theme">10</span>
+                    </p>
+                    <p>
+                        Выиграл: <span id="win">0</span>
+                    </p>
+                    <p>
+                        Проиграл: <span id="fail">0</span>
+                    </p>
+                    <p>
+                        Попыток осталось: <span id="try">10</span>
+                    </p>
+
+                </div>
+                <div class="output">
+                    <input type="text" id="w" readonly="true">
+                    <!--<input type="text" id="message">-->
+                </div>
+            </div>
+        </div>
+        <div class="secondRowContent">
+            <div id="lettersAlign">
+                <div class="btnContainer">
+                    <button class="letter" myAtr="а" id="а">а</button>
+                    <button class="letter" myAtr="б" id="б">б</button>
+                    <button class="letter" myAtr="в" id="в">В</button>
+                    <button class="letter" myAtr="г" id="г">г</button>
+                    <button class="letter" myAtr="д" id="д">д</button>
+                    <button class="letter" myAtr="е" id="е">е</button>
+                    <button class="letter" myAtr="ё" id="ё">ё</button>
+                    <button class="letter" myAtr="ж" id="ж">ж</button>
+                    <button class="letter" myAtr="з" id="з">З</button>
+                    <button class="letter" myAtr="и" id="и">И</button>
+                    <button class="letter" myAtr="й" id="й">Й</button>
+                    <button class="letter" myAtr="к" id="к">К</button>
+                    <button class="letter" myAtr="л" id="л">Л</button>
+                    <button class="letter" myAtr="м" id="м">М</button>
+                    <button class="letter" myAtr="н" id="н">Н</button>
+                    <button class="letter" myAtr="о" id="о">О</button>
+                    <button class="letter" myAtr="п" id="п">П</button>
+                    <button class="letter" myAtr="р" id="р">р</button>
+                    <button class="letter" myAtr="с" id="с">с</button>
+                    <button class="letter" myAtr="т" id="т">Т</button>
+                    <button class="letter" myAtr="у" id="у">У</button>
+                    <button class="letter" myAtr="ф" id="ф">Ф</button>
+                    <button class="letter" myAtr="х" id="х">Х</button>
+                    <button class="letter" myAtr="ц" id="ц">Ц</button>
+                    <button class="letter" myAtr="ч" id="ч">ч</button>
+                    <button class="letter" myAtr="щ" id="щ">Щ</button>
+                    <button class="letter" myAtr="ш" id="ш">ш</button>
+                    <button class="letter" myAtr="ъ" id="ъ">Ъ</button>
+                    <button class="letter" myAtr="ы" id="ы">ы</button>
+                    <button class="letter" myAtr="ь" id="ь">Ь</button>
+                    <button class="letter" myAtr="ю" id="ю">ю</button>
+                    <button class="letter" myAtr="э" id="э">э</button>
+                    <button class="letter" myAtr="я" id="я">Я</button>
+                </div>
+            </div>
+
+            <div id="btnContainer">
+                <input type="button" value="Новое слово" class="btn" onclick="gameRestart()">
+                <input type="button" value="Сменить тему" class="btn" onclick="show()">
+                <a href="index.html" class="btn" id="back">Выйти</a>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

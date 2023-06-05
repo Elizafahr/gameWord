@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="style.css" rel="stylesheet">
+  <style>
+    body {
+      text-align: center;
+      align-content: center;
+      padding: 5%;
+    }
+
+    .firstRow {
+      display: flex;
+      flex-direction: row;
+      width: 50vw;
+      justify-content: center;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      width: max-content;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 50px;
+    }
+
+    .container {
+      display: grid;
+      padding: 3%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container first">
+    <div class="firstRow">
+      <button class="btn help"
+        onmouseover="customAlert.alert('Виселица - увлекательная игра, которая проверяет вашу логику и знание слов. <br> В этой игре компьютер выбирает случайное слово, а вы должны угадать его, вводя буквы по одной. Если вы правильно угадываете буквы, они отображаются на своем месте, но если вы ошибаетесь, то на экране появляется картинка виселицы. <br>Чтобы выиграть, вам нужно угадать все буквы в слове до того, как совершите 10 ошибок.  <br>После каждой игры вы можете увидеть статистику побед, поражений и количества попыток.  <br>Начните новую игру в любой момент и проверьте свои знания слов!' ,'Добро пожаловать!')">?</button>
+      <div class="column">
+        <h1>Виселица</h1>
+        <a href="game.html" class="btn" id="back">Играть</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    function CustomAlert() {
+      this.alert = function (message, title) {
+        document.body.innerHTML = document.body.innerHTML + '<div id="dialogoverlay"></div><div id="dialogbox" class="slit-in-vertical"><div><div id="dialogboxhead"></div><div id="dialogboxbody"></div><div id="dialogboxfoot"></div></div></div>';
+
+        let dialogoverlay = document.getElementById('dialogoverlay');
+        let dialogbox = document.getElementById('dialogbox');
+        let winH = window.innerHeight;
+        dialogoverlay.style.height = winH + "px";
+        dialogbox.style.top = "100px";
+        dialogoverlay.style.display = "block";
+        dialogbox.style.display = "block";
+        document.getElementById('dialogboxhead').style.display = 'block';
+        if (typeof title === 'undefined') {
+          document.getElementById('dialogboxhead').style.display = 'none';
+        } else {
+          document.getElementById('dialogboxhead').innerHTML = '<i class="fa fa-exclamation-circle" aria-hidden="true"></i> ' + title;
+        }
+        document.getElementById('dialogboxbody').innerHTML = message;
+        document.getElementById('dialogboxfoot').innerHTML = '<button class="pure-material-button-contained active" onclick="customAlert.ok()">OK</button>';
+      }
+
+      this.ok = function () {
+        document.getElementById('dialogbox').style.display = "none";
+        document.getElementById('dialogoverlay').style.display = "none";
+      }
+    }
+
+    let customAlert = new CustomAlert();
+  </script>
+</body>
+
+</html>
