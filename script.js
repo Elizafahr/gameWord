@@ -1,4 +1,4 @@
-const themes = {
+const themes = { // объект с темами слов
 	words: ['программа', 'катастофа', 'макака', 'прекрасный',
 		'динозавр', 'компьютер', 'оладушек', 'индекс', 'школа',
 		'интроверт', 'вертолёт', 'институт', 'природа', 'алфавит',
@@ -112,6 +112,7 @@ let res_theme = document.getElementById('theme')
 let motion = 10
 let themeOutput
 let firstletter
+const resInput = document.getElementById('resInput')
 const themeButton = document.getElementsByClassName('theme-button')
 for (let i = 0; i < themeButton.length; i++) {
   addEvent(themeButton[i])
@@ -161,36 +162,28 @@ function show () {
   answerArray = []
 }
 
-function win () {
-  // добавляем анимацию хлопушек на страницу
-  for (var i = 0; i < 200; i++) {
-    var confetti = document.createElement('div')
-    confetti.className = 'confetti'
-    confetti.style.left = Math.random() * window.innerWidth + 'px'
-    confetti.style.animationDelay = Math.random() * 3 + 's'
-    document.body.appendChild(confetti)
-  }
+function win () {  // добавляем анимацию хлопушек на страницу при выигрыше
+  let pyro = document.getElementById('pyro')
+  pyro.style.display= 'flex';
   setTimeout(function () {
-    var confettis = document.querySelectorAll('.confetti')
-    confetti.style.display = 'none'
-    for (var i = 0; i < confettis.length; i++) {
-      document.body.removeChild(confettis[i])
-    }
-  }, 2500)
+  pyro.style.display = 'none'
+  message.style.display = 'none'
+
+   
+  }, 2500) 
 }
 
+
+// Функция начала игры
 function startGame () {
   let answerArray = [] // массив для хранения отгадываемого слова
-  res['try'] = 10
-  //alert(res['try'])
-
-  for (let i = 0; i < word.length; i++) {
+  res['try'] = 10  
+  for (let i = 0; i < word.length; i++) {//заполняем слово пробелами
     answerArray[i] = '_'
   }
 
   for (let i = 0; i < word.length; i++) {
-    // Добавляем код для отображения совпадающих букв
-    if (word[i] === word[0]) {
+    if (word[i] === word[0]) {    // Добавляю код для отображения совпадающих букв
       answerArray[i] = word[i]
     }
   }
@@ -198,17 +191,20 @@ function startGame () {
   remainingLetters = word.length // количество оставшихся неотгаданных букв
   document.getElementById('w').value = answerArray.join(' ')
 
-  const letters = document.getElementsByClassName('letter') //получаю данные пользователю буквы()
+  //получаю данные пользователю буквы()
+  const letters = document.getElementsByClassName('letter')
   for (let i = 0; i < letters.length; i++) {
     addEvent(letters[i])
     letters[i].style.backgroundColor = 'white'
   }
+
+  // Функция для добавления обработчика события на ячейку игрового поля
   function addEvent (letters) {
-    // Функция для добавления обработчика события на ячейку игрового поля
     letters.addEventListener('click', step)
     letters = document.getElementsByClassName('letter') //получаю данные пользователю буквы
   }
 
+  //отмечаю кнопки первой буквы в слове как отгаданные
   document.getElementById(`${word[0]}`).style.backgroundColor = '#BDFF00'
 
   function step () {
@@ -242,6 +238,9 @@ function startGame () {
         imageContainer.children[0].src = `img/winning.png`
         res_win.innerHTML = res['win'] // Обновляем статистику побед
         res_fail.innerHTML = res['fail']
+        resInput.style.display ='grid'
+        resInput.style.color= '#06ad00'
+        resInput.value="Вы выиграли!!!!"
         for (let k = 0; k < letters.length; k++) {
           letters[k].style.backgroundColor = '#BDFF00' // зеленый фон для всех букв при выигрыше
         }
@@ -255,6 +254,10 @@ function startGame () {
         document.getElementById('win').innerHTML = res['win'] // Обновляем статистику побед
         document.getElementById('fail').innerHTML = res['fail']
         document.getElementById('w').value = word
+        resInput.style.display ='grid'
+        resInput.style.color= '#FF007A'
+        resInput.value="Вы проиграли((("
+
         for (let k = 0; k < letters.length; k++) {
           letters[k].style.backgroundColor = '#FF007A'
         }
@@ -265,6 +268,9 @@ function startGame () {
 }
 
 function gameRestart () {
+  resInput.style.color= '#white'
+  resInput.value=""
+  resInput.style.display ='none'
   word = ''
   wordsArray = themes[theme]
   word = wordsArray[Math.floor(Math.random() * wordsArray.length)] // выбираем случайное слово из массива
@@ -286,6 +292,5 @@ function gameRestart () {
   }
   paused = false
   document.getElementById('w').value = answerArray.join(' ')
-  alert(word)
   startGame()
 }
