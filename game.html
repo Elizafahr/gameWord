@@ -16,23 +16,21 @@
             <h1 class="title" style="color:white;">Выберите тему</h1>
         </div>
         <div class="themsSelect">
-            <div class="theme-button btn" myAtr="words">Любое</div> <!--onclick="generateWord()"-->
+            <div class="theme-button btn" myAtr="words">Любое</div>
             <div class="theme-button btn" myAtr="cities">Города</div>
             <div class="theme-button btn" myAtr="animals">Животные</div>
             <div class="theme-button btn" myAtr="flowers">Растения</div>
-            <!-- <input class="theme-button btn" onclick="show()" type="button" value="Любое">onclick="generateWord()"-->
-            <!-- <input class="theme-button btn" onclick="show()" type="button" value="Города">onclick="generateWord()"-->
-            <!-- <input class="theme-button btn" onclick="show()" type="button" value="Животные">-onclick="generateWord()"-->
-            <!-- <input class="theme-button btn" onclick="show()" type="button" value="Растения">onclick="generateWord()"-->
-
-        </div>
+            </div>
     </div>
-    <!-- <div class="pyro">
-  <div class="before"></div>
-  <div class="after"></div>
-</div> -->
+<div id="pyro">
+    <div class="before"></div>
+    <div class="after"></div>
+  </div>
     <div class="container">
+       <div class="header">
         <h1 class="title">Виселица</h1>
+        <input type="text" id="resInput" readonly="true">
+       </div>
         <div id="firstrow">
             <div class="image-container" id="confetti-container">
                 <img src="img/0.png" alt="Изображение виселицы">
@@ -55,6 +53,7 @@
                 </div>
                 <div class="output">
                     <input type="text" id="w" readonly="true">
+                    <input type="text" id="resInput" readonly="true">
                     <!--<input type="text" id="message">-->
                 </div>
             </div>
