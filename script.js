@@ -137,10 +137,10 @@ function addEvent (themeButton) {
         themeOutput = 'города'
         break
       case 'flowers':
-        themeOutput = 'цветы'
+        themeOutput = 'растения'
         break
       case 'words':
-        themeOutput = 'любое'
+        themeOutput = 'не задана'
         break
     }
     res['theme'] = themeOutput
@@ -151,6 +151,7 @@ function addEvent (themeButton) {
   }
 }
 
+//функция скрытия кнопок выбора темы и перехода к игре
 function show () {
   word = ' '
   let start = document.querySelector('.start')
@@ -168,9 +169,7 @@ function win () {  // добавляем анимацию хлопушек на 
   setTimeout(function () {
   pyro.style.display = 'none'
   message.style.display = 'none'
-
-   
-  }, 2500) 
+  }, 1500) 
 }
 
 
